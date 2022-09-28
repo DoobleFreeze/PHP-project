@@ -41,10 +41,15 @@ function merge(array $left, array $right): array
  */
 function sorting(string $str): string
 {
+    $sp = explode(",", $str);
+    for ($i = 0; $i < count($sp); ++$i) {
+        if (!is_numeric($sp[$i])) {
+            return 'Список состоит не из чисел';
+        }
+    }
     $array = array_map(function ($element) {
         return intval($element);
     }, explode(",", $str));
-
     $new_array = mergeSort($array);
     return join(", ", $new_array);
 }

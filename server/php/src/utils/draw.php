@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Возвращает последовательность бит указанного числа
- * @param int $number анализируемое число
- * @param int $length количество бит в последовательности
- * @param int $start номер начального бита (нумерация начинается с 0 и справа)
- * @return string битовая последовательность
- */
 function getBitSequence(int $number, int $length, int $start = 0): string
 {
     $sequence = "";
@@ -26,20 +19,6 @@ function getBitSequence(int $number, int $length, int $start = 0): string
     return strrev($sequence);
 }
 
-
-/**
- * Возвращает готовый svg-элемент на основе переданного кода.
- * Код состоит из 36 бит. Отсчёт бит начинается справа с 0.
- *
- * Эта последовательность битов кодирует следующие параметры:
- *  - высота (5 бит)
- *  - ширина (5 бит)
- *  - цвет (24 бита)
- *  - форма (первые 2 бита)
- *
- * @param string $code закодированные параметры svg-фигуры
- * @return string html код
- */
 function draw(string $code): string
 {
     $number = (str_contains($code, "0b"))
